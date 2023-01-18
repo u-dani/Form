@@ -1,0 +1,128 @@
+
+@use 'animations';
+@use 'mixins';
+@use 'reserved-style-rules';
+@use 'variables';
+
+@import 'base';
+
+.behind-form {
+    border-radius: variables.$border-radius-medium;
+    height: variables.$height-container;
+    overflow: hidden;
+    position: relative;
+    width: variables.$width-container;
+
+    &::before {
+        @extend %animated-border;
+    }
+
+    &::after {
+        @extend %animated-border;
+        animation-delay: -1.5s;
+    }
+}
+
+.main-form {
+    @include mixins.flex-center(column);
+    background-color: variables.$second-bg-color;
+    border-radius: variables.$border-radius-medium;
+    box-shadow: 0px 1px 5px #00000066;
+    inset: 3px;
+    position: absolute;
+    z-index: 10;
+
+    &-title {
+        @include mixins.font-size-color(variables.$font-size-large, variables.$primary-color);
+        margin-bottom: 10px;
+        text-shadow: 0px 0px 10px variables.$second-color;
+    }
+
+    &-field {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        height: 80px;
+        justify-content: end;
+        margin-bottom: 10px;
+        padding: 0px 30px;
+        position: relative;
+        width: 100%;
+
+        .main-form-span {
+            @include mixins.font-size-color(variables.$font-size-medium, variables.$primary-color);
+            display: inline-block;
+            font-weight: variables.$font-weight-bolder;
+            position: absolute;
+            top: 60%;
+            transition: all .5s ease;
+            width: 100%;
+        }
+
+        .span-active {
+            @include mixins.font-size-color(variables.$font-size-small, variables.$primary-color);
+            font-weight: variables.$font-weight-lighter;
+            top: 0;
+        }
+
+        .main-form-input {
+            @include mixins.font-size-color(variables.$font-size-medium, variables.$third-color);
+            border-radius: variables.$border-radius-small;
+            border: none;
+            height: 50px;
+            outline: none;
+            padding: 0px 10px;
+            transform-origin: bottom;
+            transform: scaleY(0.02);
+            transition: all .5s ease;
+            width: 100%;
+        }
+
+        .input-active {
+            transform: scaleY(1);
+        }
+    }
+
+    &-container-links {
+        @include mixins.flex-center;
+        justify-content: space-between;
+        padding: 0 30px;
+        width: 100%;
+
+        .main-form-link {
+            @include mixins.font-size-color(variables.$font-size-tiny, variables.$primary-color);
+            display: inline-block;
+            text-decoration: none;
+
+            &:hover {
+                color: lighten(variables.$primary-color, 20);
+            }
+        }
+    }
+
+    &-btn-submit {
+        background-color: variables.$primary-color;
+        border-radius: variables.$border-radius-large;
+        border: 1px solid darken(variables.$primary-color, 10%);
+        box-shadow: 0px 3px 5px variables.$second-color;
+        cursor: pointer;
+        font-size: variables.$font-size-medium;
+        margin-top: 50px;
+        padding: 10px 20px;
+        transition: transform .1s;
+
+        &:active {
+            box-shadow: 0px 1px 5px variables.$second-color;
+            transform: translateY(3px);
+        }
+
+        &:hover {
+            background-color: lighten(variables.$primary-color, 10);
+        }
+    }
+}
+
+
+
+
+

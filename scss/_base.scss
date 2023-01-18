@@ -1,0 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    @include mixins.flex-center;
+    background-color: variables.$primary-bg-color;
+    min-height: 100vh;
+    width: 100vw;
+}

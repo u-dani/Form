@@ -1,0 +1,14 @@
+
+@use 'variables';
+
+%animated-border {
+    animation: rotate360deg 3s linear infinite;
+    background: variables.$gradient-purple;
+    content: "";
+    height: variables.$height-container;
+    left: -50%;
+    position: absolute;
+    top: -50%;
+    transform-origin: bottom right;
+    width: variables.$width-container;
+}

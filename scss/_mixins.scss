@@ -1,0 +1,18 @@
+
+@use 'variables';
+
+
+@mixin flex-center ($direction: row) {
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;
+    justify-content: center;
+}
+
+
+@mixin font-size-color ($size: 1em, $color: black) {
+    color: $color;
+    font-family: variables.$font-family;
+    font-size: $size;
+    letter-spacing: .5px;
+}
